@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import {
   Github,
   Linkedin,
+  Mail,
   ArrowDown,
   ExternalLink,
   Instagram,
@@ -51,17 +52,17 @@ const SOCIAL_LINKS = [
 // ===============================
 
 const StatusBadge = memo(() => (
-  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full border border-cyan-400/20 bg-cyan-400/5 backdrop-blur-md">
+  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-400/20 bg-cyan-400/5 backdrop-blur-md">
     <span className="relative flex h-2.5 w-2.5">
-      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
-      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
+      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60"></span>
+      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
     </span>
 
-    <span className="text-xs sm:text-sm text-gray-300">
+    <span className="text-sm text-gray-300">
       Available for opportunities
     </span>
 
-    <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400" />
+    <Sparkles className="w-4 h-4 text-cyan-400" />
   </div>
 ));
 
@@ -70,8 +71,8 @@ const StatusBadge = memo(() => (
 // ===============================
 
 const TechBadge = memo(({ tech }) => (
-  <div className="group px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-white/10 bg-white/[0.03] hover:bg-cyan-400/10 hover:border-cyan-400/30 transition-all duration-300">
-    <span className="text-xs sm:text-sm text-gray-400 group-hover:text-cyan-300 transition-colors">
+  <div className="group px-4 py-2 rounded-lg border border-white/10 bg-white/[0.03] hover:bg-cyan-400/10 hover:border-cyan-400/30 transition-all duration-300">
+    <span className="text-sm text-gray-400 group-hover:text-cyan-300 transition-colors">
       {tech}
     </span>
   </div>
@@ -89,8 +90,8 @@ const SocialButton = memo(({ icon: Icon, link, label }) => (
     aria-label={label}
     className="group"
   >
-    <div className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] hover:bg-cyan-400/10 hover:border-cyan-400/30 transition-all duration-300">
-      <Icon className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-gray-400 group-hover:text-cyan-300 transition-colors" />
+    <div className="w-11 h-11 flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] hover:bg-cyan-400/10 hover:border-cyan-400/30 transition-all duration-300">
+      <Icon className="w-5 h-5 text-gray-400 group-hover:text-cyan-300 transition-colors" />
     </div>
   </a>
 ));
@@ -181,28 +182,20 @@ const Home = () => {
 
       <section
         id="Home"
-        className="
-          relative
-          min-h-screen
-          overflow-hidden
-          bg-[#050B14]
-          px-4
-          sm:px-[6%]
-          lg:px-[10%]
-        "
+        className="relative min-h-screen overflow-hidden bg-[#050B14] px-[6%] lg:px-[10%]"
       >
         {/* ===============================
             BACKGROUND EFFECT
         =============================== */}
 
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-[-180px] left-[-180px] w-[380px] h-[380px] sm:w-[500px] sm:h-[500px] bg-cyan-500/10 rounded-full blur-[110px] sm:blur-[140px]" />
+          <div className="absolute top-[-200px] left-[-150px] w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[140px]" />
 
-          <div className="absolute bottom-[-180px] right-[-150px] w-[380px] h-[380px] sm:w-[500px] sm:h-[500px] bg-emerald-500/10 rounded-full blur-[110px] sm:blur-[140px]" />
+          <div className="absolute bottom-[-200px] right-[-100px] w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[140px]" />
 
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] border border-cyan-400/[0.03] rounded-full" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] border border-cyan-400/[0.03] rounded-full" />
 
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] border border-emerald-400/[0.03] rounded-full" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-emerald-400/[0.03] rounded-full" />
         </div>
 
         {/* ===============================
@@ -214,49 +207,25 @@ const Home = () => {
             isLoaded ? "opacity-100" : "opacity-0"
           }`}
         >
-          <div
-            className="
-              w-full
-              grid
-              grid-cols-1
-              lg:grid-cols-[1.1fr_0.9fr]
-              gap-10
-              sm:gap-12
-              lg:gap-20
-              items-center
-              py-24
-              sm:py-28
-              lg:py-20
-            "
-          >
+          <div className="w-full grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-center py-28 lg:py-20">
+
             {/* ===============================
                 LEFT
             =============================== */}
 
             <div
-              className="text-center lg:text-left min-w-0"
+              className="text-left"
               data-aos="fade-right"
               data-aos-delay="100"
             >
               <StatusBadge />
 
-              <div className="mt-6 sm:mt-7">
-                <p className="text-cyan-400 text-xs sm:text-sm md:text-base font-medium tracking-[0.2em] sm:tracking-[0.25em] uppercase mb-3 sm:mb-4">
+              <div className="mt-7">
+                <p className="text-cyan-400 text-sm md:text-base font-medium tracking-[0.25em] uppercase mb-4">
                   Hello, I'm
                 </p>
 
-                <h1
-                  className="
-                    text-3xl
-                    sm:text-4xl
-                    md:text-5xl
-                    lg:text-6xl
-                    xl:text-6xl
-                    font-bold
-                    leading-[1]
-                    tracking-tight
-                  "
-                >
+<h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-6xl font-bold leading-[0.95] tracking-tight">
                   <span className="text-white">
                     Muhammad
                   </span>
@@ -272,42 +241,23 @@ const Home = () => {
               {/* TYPING */}
 
               <div
-                className="
-                  mt-5
-                  sm:mt-7
-                  flex
-                  items-center
-                  justify-center
-                  lg:justify-start
-                  min-h-[30px]
-                "
+                className="mt-7 flex items-center"
                 data-aos="fade-up"
                 data-aos-delay="250"
               >
-                <Code2 className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400 mr-2 sm:mr-3 shrink-0" />
+                <Code2 className="w-5 h-5 text-cyan-400 mr-3" />
 
-                <span className="text-base sm:text-xl md:text-2xl text-gray-200">
+                <span className="text-xl md:text-2xl text-gray-200">
                   {text}
                 </span>
 
-                <span className="ml-1 w-[2px] h-5 sm:h-6 bg-cyan-400 animate-blink" />
+                <span className="ml-1 w-[2px] h-6 bg-cyan-400 animate-blink" />
               </div>
 
               {/* DESCRIPTION */}
 
               <p
-                className="
-                  mt-5
-                  sm:mt-6
-                  max-w-xl
-                  mx-auto
-                  lg:mx-0
-                  text-gray-400
-                  text-sm
-                  sm:text-base
-                  md:text-lg
-                  leading-relaxed
-                "
+                className="mt-6 max-w-xl text-gray-400 text-base md:text-lg leading-relaxed"
                 data-aos="fade-up"
                 data-aos-delay="350"
               >
@@ -320,15 +270,7 @@ const Home = () => {
               {/* TECH */}
 
               <div
-                className="
-                  flex
-                  flex-wrap
-                  justify-center
-                  lg:justify-start
-                  gap-2
-                  mt-6
-                  sm:mt-7
-                "
+                className="flex flex-wrap gap-2 mt-7"
                 data-aos="fade-up"
                 data-aos-delay="450"
               >
@@ -340,50 +282,13 @@ const Home = () => {
               {/* BUTTON */}
 
               <div
-                className="
-                  flex
-                  flex-col
-                  xs:flex-row
-                  sm:flex-row
-                  justify-center
-                  lg:justify-start
-                  gap-3
-                  sm:gap-4
-                  mt-7
-                  sm:mt-9
-                "
+                className="flex flex-wrap gap-4 mt-9"
                 data-aos="fade-up"
                 data-aos-delay="550"
               >
                 <a
                   href="#Portofolio"
-                  className="
-                    group
-                    inline-flex
-                    items-center
-                    justify-center
-                    gap-2
-                    w-full
-                    sm:w-auto
-                    px-5
-                    sm:px-6
-                    py-3
-                    sm:py-3.5
-                    rounded-xl
-                    bg-gradient-to-r
-                    from-cyan-500
-                    to-emerald-500
-                    text-white
-                    text-sm
-                    sm:text-base
-                    font-medium
-                    shadow-lg
-                    shadow-cyan-500/20
-                    hover:shadow-cyan-500/40
-                    hover:-translate-y-1
-                    transition-all
-                    duration-300
-                  "
+                  className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 text-white font-medium shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 hover:-translate-y-1 transition-all duration-300"
                 >
                   View Projects
 
@@ -393,31 +298,7 @@ const Home = () => {
                 <a
                   href="/CV-Muhammad-Nur-Adzim.pdf"
                   download
-                  className="
-                    group
-                    inline-flex
-                    items-center
-                    justify-center
-                    gap-2
-                    w-full
-                    sm:w-auto
-                    px-5
-                    sm:px-6
-                    py-3
-                    sm:py-3.5
-                    rounded-xl
-                    border
-                    border-white/10
-                    bg-white/[0.03]
-                    text-gray-200
-                    text-sm
-                    sm:text-base
-                    hover:bg-white/[0.06]
-                    hover:border-cyan-400/30
-                    hover:text-cyan-300
-                    transition-all
-                    duration-300
-                  "
+                  className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-white/10 bg-white/[0.03] text-gray-200 hover:bg-white/[0.06] hover:border-cyan-400/30 hover:text-cyan-300 transition-all duration-300"
                 >
                   Download CV
 
@@ -428,14 +309,7 @@ const Home = () => {
               {/* SOCIAL */}
 
               <div
-                className="
-                  flex
-                  justify-center
-                  lg:justify-start
-                  gap-3
-                  mt-6
-                  sm:mt-8
-                "
+                className="flex gap-3 mt-8"
                 data-aos="fade-up"
                 data-aos-delay="650"
               >
@@ -453,120 +327,55 @@ const Home = () => {
             =============================== */}
 
             <div
-              className="
-                relative
-                flex
-                items-center
-                justify-center
-                w-full
-                min-w-0
-                mt-2
-                sm:mt-4
-                lg:mt-0
-              "
+              className="relative flex items-center justify-center"
               data-aos="fade-left"
               data-aos-delay="300"
             >
               {/* GLOW */}
 
-              <div className="absolute w-[240px] h-[240px] sm:w-[300px] sm:h-[300px] md:w-[450px] md:h-[450px] bg-cyan-500/10 rounded-full blur-[80px] sm:blur-[100px]" />
+              <div className="absolute w-[300px] h-[300px] md:w-[450px] md:h-[450px] bg-cyan-500/10 rounded-full blur-[100px]" />
 
               {/* MAIN CARD */}
 
-              <div className="relative w-full max-w-[520px] sm:max-w-[550px]">
+              <div className="relative w-full max-w-[550px]">
 
                 {/* TOP LABEL */}
 
-                <div
-                  className="
-                    absolute
-                    -top-4
-                    sm:-top-5
-                    left-4
-                    sm:left-6
-                    md:left-10
-                    z-20
-                    px-3
-                    py-1.5
-                    sm:px-4
-                    sm:py-2
-                    rounded-lg
-                    border
-                    border-cyan-400/20
-                    bg-[#07111f]/90
-                    backdrop-blur-xl
-                  "
-                >
-                  <span className="text-[10px] sm:text-xs md:text-sm text-cyan-300">
+                <div className="absolute -top-5 left-6 md:left-10 z-20 px-4 py-2 rounded-lg border border-cyan-400/20 bg-[#07111f]/90 backdrop-blur-xl">
+                  <span className="text-xs md:text-sm text-cyan-300">
                     &lt; developing /&gt;
                   </span>
                 </div>
 
                 {/* IMAGE */}
 
-                <div
-                  className="
-                    relative
-                    rounded-2xl
-                    sm:rounded-3xl
-                    border
-                    border-white/10
-                    bg-white/[0.02]
-                    backdrop-blur-xl
-                    p-2.5
-                    sm:p-4
-                    md:p-6
-                    shadow-2xl
-                    shadow-cyan-500/10
-                  "
-                >
-                  <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-cyan-500/[0.05] to-emerald-500/[0.05]" />
+                <div className="relative rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-xl p-4 md:p-6 shadow-2xl shadow-cyan-500/10">
+
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-500/[0.05] to-emerald-500/[0.05]" />
 
                   <img
                     src="/Animation1.gif"
                     alt="Developer Animation"
-                    className="
-                      relative
-                      z-10
-                      w-full
-                      h-auto
-                      object-contain
-                      rounded-xl
-                      sm:rounded-2xl
-                    "
+                    className="relative z-10 w-full h-auto object-contain"
                   />
 
                   {/* BOTTOM BAR */}
 
-                  <div
-                    className="
-                      relative
-                      z-10
-                      mt-2
-                      sm:mt-3
-                      flex
-                      items-center
-                      justify-between
-                      border-t
-                      border-white/10
-                      pt-3
-                      sm:pt-4
-                    "
-                  >
+                  <div className="relative z-10 mt-3 flex items-center justify-between border-t border-white/10 pt-4">
                     <div>
-                      <p className="text-[9px] sm:text-xs text-gray-500">
+                      <p className="text-xs text-gray-500">
                         CURRENT FOCUS
                       </p>
 
-                      <p className="text-xs sm:text-sm text-gray-200 mt-1">
+                      <p className="text-sm text-gray-200 mt-1">
                         Web Development
                       </p>
                     </div>
 
-                    <div className="flex items-center gap-1.5 sm:gap-2">
-                      <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
 
-                      <span className="text-[10px] sm:text-xs text-gray-400">
+                      <span className="text-xs text-gray-400">
                         Online
                       </span>
                     </div>
@@ -600,14 +409,13 @@ const Home = () => {
                     </p>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
         </div>
 
-        {/* ===============================
-            SCROLL INDICATOR
-        =============================== */}
+        {/* SCROLL INDICATOR */}
 
         <div className="absolute bottom-7 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-gray-500">
           <span className="text-[10px] uppercase tracking-[0.3em]">

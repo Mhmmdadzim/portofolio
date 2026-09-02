@@ -158,7 +158,7 @@ const Navbar = () => {
                             onClick={(e) =>
                                 scrollToSection(e, "#Home")
                             }
-                            className="group flex items-center gap-2.5 sm:gap-3"
+                            className="group flex items-center gap-2.5 sm:gap-3 lg:-translate-x-[60px]"
                         >
                             {/* Logo Icon */}
 
@@ -178,7 +178,7 @@ const Navbar = () => {
                                     "
                                 >
                                     <span className="text-cyan-400 font-bold text-xs sm:text-sm">
-                                        N
+                                        A
                                     </span>
                                 </div>
                             </div>
@@ -200,7 +200,7 @@ const Navbar = () => {
                             DESKTOP NAVIGATION
                         ================================= */}
 
-                        <div className="hidden md:flex items-center">
+                        <div className="hidden md:flex items-center lg:translate-x-[20px]">
                             <div className="flex items-center gap-1">
                                 {navItems.map((item) => {
                                     const isActive =
