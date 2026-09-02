@@ -17,7 +17,6 @@ import "aos/dist/aos.css";
 // ===============================
 
 const WORDS = [
-  "Informatics Student",
   "Frontend Developer",
   "Software Developer",
 ];
