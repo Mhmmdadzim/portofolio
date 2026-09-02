@@ -28,7 +28,7 @@ const Navbar = () => {
                     if (section) {
                         return {
                             id: item.href.replace("#", ""),
-                            offset: section.offsetTop - 250,
+                            offset: section.offsetTop - 180,
                             height: section.offsetHeight,
                         };
                     }
@@ -67,11 +67,11 @@ const Navbar = () => {
         if (isOpen) {
             document.body.style.overflow = "hidden";
         } else {
-            document.body.style.overflow = "unset";
+            document.body.style.overflow = "";
         }
 
         return () => {
-            document.body.style.overflow = "unset";
+            document.body.style.overflow = "";
         };
     }, [isOpen]);
 
@@ -85,7 +85,11 @@ const Navbar = () => {
         const section = document.querySelector(href);
 
         if (section) {
-            const top = section.offsetTop - 100;
+            // Lebih kecil di HP supaya section tidak tertutup navbar
+            const isMobile = window.innerWidth < 768;
+            const offset = isMobile ? 82 : 100;
+
+            const top = section.offsetTop - offset;
 
             window.scrollTo({
                 top,
@@ -102,24 +106,49 @@ const Navbar = () => {
                 NAVBAR
             ================================= */}
 
-            <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-10 pt-4">
-
+            <nav
+                className="
+                    fixed
+                    top-0
+                    left-0
+                    right-0
+                    z-50
+                    px-3
+                    sm:px-6
+                    lg:px-10
+                    pt-2.5
+                    sm:pt-4
+                "
+            >
                 <div
                     className={`
                         max-w-6xl mx-auto
                         transition-all duration-500
-                        rounded-2xl
+                        rounded-xl sm:rounded-2xl
                         border
                         ${
                             scrolled || isOpen
-                                ? "bg-[#07111f]/85 backdrop-blur-2xl border-cyan-400/10 shadow-xl shadow-cyan-500/5"
-                                : "bg-[#07111f]/40 backdrop-blur-xl border-white/5"
+                                ? "bg-[#07111f]/90 backdrop-blur-2xl border-cyan-400/10 shadow-xl shadow-cyan-500/5"
+                                : "bg-[#07111f]/50 backdrop-blur-xl border-white/5"
                         }
                     `}
                 >
+                    {/* =================================
+                        NAVBAR INNER
+                    ================================= */}
 
-                    <div className="h-16 px-5 sm:px-7 flex items-center justify-between">
-
+                    <div
+                        className="
+                            h-14
+                            sm:h-16
+                            px-3.5
+                            sm:px-5
+                            md:px-7
+                            flex
+                            items-center
+                            justify-between
+                        "
+                    >
                         {/* =================================
                             LOGO
                         ================================= */}
@@ -129,27 +158,34 @@ const Navbar = () => {
                             onClick={(e) =>
                                 scrollToSection(e, "#Home")
                             }
-                            className="group flex items-center gap-3"
+                            className="group flex items-center gap-2.5 sm:gap-3"
                         >
-
                             {/* Logo Icon */}
 
                             <div className="relative">
-
                                 <div className="absolute inset-0 bg-cyan-400/20 blur-lg rounded-full group-hover:bg-cyan-400/30 transition-all duration-300" />
 
-                                <div className="relative w-9 h-9 rounded-xl border border-cyan-400/20 bg-cyan-400/5 flex items-center justify-center">
-                                    <span className="text-cyan-400 font-bold text-sm">
+                                <div
+                                    className="
+                                        relative
+                                        w-8 h-8
+                                        sm:w-9 sm:h-9
+                                        rounded-lg
+                                        sm:rounded-xl
+                                        border border-cyan-400/20
+                                        bg-cyan-400/5
+                                        flex items-center justify-center
+                                    "
+                                >
+                                    <span className="text-cyan-400 font-bold text-xs sm:text-sm">
                                         N
                                     </span>
                                 </div>
-
                             </div>
 
                             {/* Logo Text */}
 
                             <div className="hidden sm:block">
-
                                 <p className="text-[10px] uppercase tracking-[0.25em] text-gray-500 leading-none mb-1">
                                     Portfolio
                                 </p>
@@ -157,9 +193,7 @@ const Navbar = () => {
                                 <p className="text-base font-semibold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
                                     MhmmdAdzim
                                 </p>
-
                             </div>
-
                         </a>
 
                         {/* =================================
@@ -167,9 +201,7 @@ const Navbar = () => {
                         ================================= */}
 
                         <div className="hidden md:flex items-center">
-
                             <div className="flex items-center gap-1">
-
                                 {navItems.map((item) => {
                                     const isActive =
                                         activeSection ===
@@ -187,8 +219,7 @@ const Navbar = () => {
                                             }
                                             className="relative px-4 py-2.5 rounded-xl group"
                                         >
-
-                                            {/* Hover background */}
+                                            {/* Hover Background */}
 
                                             <span
                                                 className={`
@@ -206,7 +237,8 @@ const Navbar = () => {
 
                                             <span
                                                 className={`
-                                                    relative z-10 text-sm font-medium
+                                                    relative z-10
+                                                    text-sm font-medium
                                                     transition-colors duration-300
                                                     ${
                                                         isActive
@@ -218,16 +250,14 @@ const Navbar = () => {
                                                 {item.label}
                                             </span>
 
-                                            {/* Active indicator */}
+                                            {/* Active Indicator */}
 
                                             {isActive && (
                                                 <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-cyan-400 shadow-lg shadow-cyan-400/50" />
                                             )}
-
                                         </a>
                                     );
                                 })}
-
                             </div>
 
                             {/* =================================
@@ -235,7 +265,6 @@ const Navbar = () => {
                             ================================= */}
 
                             <div className="ml-4 pl-4 border-l border-white/10">
-
                                 <a
                                     href="#Contact"
                                     onClick={(e) =>
@@ -244,19 +273,36 @@ const Navbar = () => {
                                             "#Contact"
                                         )
                                     }
-                                    className="group flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 text-white text-sm font-medium hover:-translate-y-0.5 shadow-lg shadow-cyan-500/10 hover:shadow-cyan-500/25 transition-all duration-300"
+                                    className="
+                                        group
+                                        flex items-center gap-2
+                                        px-4 py-2.5
+                                        rounded-xl
+                                        bg-gradient-to-r
+                                        from-cyan-500
+                                        to-emerald-500
+                                        text-white
+                                        text-sm
+                                        font-medium
+                                        hover:-translate-y-0.5
+                                        shadow-lg
+                                        shadow-cyan-500/10
+                                        hover:shadow-cyan-500/25
+                                        transition-all duration-300
+                                    "
                                 >
-
                                     Let's Talk
 
                                     <ArrowUpRight
-                                        className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                                        className="
+                                            w-4 h-4
+                                            group-hover:translate-x-0.5
+                                            group-hover:-translate-y-0.5
+                                            transition-transform
+                                        "
                                     />
-
                                 </a>
-
                             </div>
-
                         </div>
 
                         {/* =================================
@@ -267,9 +313,12 @@ const Navbar = () => {
                             onClick={() => setIsOpen(!isOpen)}
                             className={`
                                 md:hidden
-                                relative w-10 h-10
+                                relative
+                                w-9 h-9
+                                sm:w-10 sm:h-10
                                 flex items-center justify-center
-                                rounded-xl
+                                rounded-lg
+                                sm:rounded-xl
                                 border border-white/10
                                 bg-white/5
                                 transition-all duration-300
@@ -280,16 +329,14 @@ const Navbar = () => {
                                 }
                             `}
                             aria-label="Toggle menu"
+                            aria-expanded={isOpen}
                         >
-
                             {isOpen ? (
-                                <X className="w-5 h-5 text-cyan-300" />
+                                <X className="w-[18px] h-[18px] sm:w-5 sm:h-5 text-cyan-300" />
                             ) : (
-                                <Menu className="w-5 h-5 text-gray-300" />
+                                <Menu className="w-[18px] h-[18px] sm:w-5 sm:h-5 text-gray-300" />
                             )}
-
                         </button>
-
                     </div>
 
                     {/* =================================
@@ -298,20 +345,18 @@ const Navbar = () => {
 
                     <div
                         className={`
-                            md:hidden overflow-hidden
-                            transition-all duration-500 ease-in-out
+                            md:hidden
+                            overflow-hidden
+                            transition-all duration-400 ease-in-out
                             ${
                                 isOpen
-                                    ? "max-h-[400px] opacity-100"
+                                    ? "max-h-[360px] opacity-100"
                                     : "max-h-0 opacity-0"
                             }
                         `}
                     >
-
-                        <div className="px-4 pb-5 pt-2">
-
-                            <div className="border-t border-white/5 pt-3 space-y-1">
-
+                        <div className="px-3 sm:px-4 pb-3.5 sm:pb-5 pt-1.5 sm:pt-2">
+                            <div className="border-t border-white/5 pt-2.5 sm:pt-3 space-y-1">
                                 {navItems.map((item, index) => {
                                     const isActive =
                                         activeSection ===
@@ -329,8 +374,9 @@ const Navbar = () => {
                                             }
                                             className={`
                                                 flex items-center justify-between
-                                                px-4 py-3.5
-                                                rounded-xl
+                                                px-3.5 sm:px-4
+                                                py-2.5 sm:py-3.5
+                                                rounded-lg sm:rounded-xl
                                                 transition-all duration-300
                                                 ${
                                                     isActive
@@ -340,29 +386,23 @@ const Navbar = () => {
                                             `}
                                             style={{
                                                 transitionDelay: `${
-                                                    index * 50
+                                                    index * 40
                                                 }ms`,
                                             }}
                                         >
-
                                             <span className="text-sm font-medium">
                                                 {item.label}
                                             </span>
 
                                             {isActive && (
-                                                <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-400/50" />
+                                                <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-400/50" />
                                             )}
-
                                         </a>
                                     );
                                 })}
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
             </nav>
         </>
